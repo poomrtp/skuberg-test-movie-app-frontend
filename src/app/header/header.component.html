@@ -1,0 +1,17 @@
+<div class="">
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Moovy</a>
+      <input
+        [(ngModel)]="search"
+        class="form-control w-50" list="datalistOptions" id="exampleDataList" placeholder="Type to search..."
+        (keyup.enter)="onGetSuggest(search)">
+      <div class=" ">
+        <button class="btn btn-outline-primary d-flex" (click)="onActivateCartModal(true)">
+          Cart
+          <div class="bg-warning item _ml-2 px-2 rounded">{{ quantity }}</div>
+        </button>
+      </div>
+    </div>
+  </nav>
+</div>

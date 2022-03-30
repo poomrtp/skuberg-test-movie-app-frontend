@@ -1,0 +1,11 @@
+<div class="row mt-4">
+  <div class="col-6 col-md-2 py-2" *ngFor="let movie of movies.results; let i = index">
+    <div class="card" style="width: 100%; height: 100%;" (click)="addToCart(movie)">
+      <img src="{{movie.poster_path}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">{{ movie.title || movie.name }}</p>
+        <p class="card-text">Price: {{ movie?.price }}</p>
+      </div>
+    </div>
+  </div>
+</div>

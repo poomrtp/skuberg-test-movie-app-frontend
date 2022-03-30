@@ -1,0 +1,45 @@
+<div class="modal-dialog modal-dialog-scrollable h-100">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onCloseModal(false)"></button>
+    </div>
+    <div
+      *ngIf="!isEmpty()"
+      class="modal-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartList.movies; let i = index">
+            <th scope="row">{{ i+1 }}</th>
+            <td>{{ item.title || item.name }}</td>
+            <td>{{ item.price }}$</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" class="text-end">ส่วนลด</td>
+            <td>{{ cartList.totalDiscount }}%</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-end">รวม</td>
+            <td>{{ cartList.totalPrice }}$</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div *ngIf="isEmpty()" class="d-flex justify-content-center mt-2">
+      <p>Cart is empty</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onClearCart()">Clear</button>
+      <button type="button" class="btn btn-primary" [disabled]="isEmpty()" (click)="onConfirm()">Checkout</button>
+    </div>
+  </div>
+</div>

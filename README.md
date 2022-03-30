@@ -1,7 +1,7 @@
-# This project is use Angular 13
-# Run project
+## This project is use Angular 13
+## Run project
 use `ng serve` or `npm start`
-# App feature
+## App feature
 1. search movie
 2. add movie to cart (use localstorage)
 3. clear cart

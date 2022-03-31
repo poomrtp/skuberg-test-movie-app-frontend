@@ -43,7 +43,7 @@ export class AppComponent {
   fetchMovies() {
     this.movieService.fetchTraindingMovies().subscribe((result: MovieInterface) => {
       result.results.forEach((item) => {
-        item.poster_path = `https://image.tmdb.org/t/p/w500${item.poster_path}`
+        item.poster_path = item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : 'https://via.placeholder.com/500x600.png?text=No+image'
         item.price = 100
       })
       this.movies = result
@@ -53,7 +53,7 @@ export class AppComponent {
   fetchMovieByname(search: string) {
     this.movieService.fetchMovieByName(search).subscribe((result: MovieInterface) => {
       result.results.forEach((item) => {
-        item.poster_path = `https://image.tmdb.org/t/p/w500${item.poster_path}`
+        item.poster_path = item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : 'https://via.placeholder.com/500x600.png?text=No+image'
         item.price = 100
       })
       this.movies = result
